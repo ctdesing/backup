@@ -1,0 +1,20 @@
+{
+  "name": "Mini-microservices",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "posts",
+    "comments",
+    "internal"
+  ],
+  "scripts": {
+    "start": "concurrently \"yarn workspace client start\" \"yarn workspace posts start\" \"yarn workspace comments start\" \"nodemon dist/posts\" \"nodemon dist/comments\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0",
+    "process": "^0.11.10"
+  }
+}
